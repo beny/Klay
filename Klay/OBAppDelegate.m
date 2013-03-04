@@ -102,16 +102,10 @@
 	
 	_statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	_statusItem.menu = self.statusMenu;
-	_statusItem.image = [NSImage imageNamed:@"glyphicons_293_translate"];
-//	_statusItem.title = @"Klay";
+	NSImage *statusIcon = [NSImage imageNamed:@"StatusIcon"];
+	[statusIcon setTemplate:YES];
+	_statusItem.image = statusIcon;
 	_statusItem.highlightMode = YES;
-	
-	
-#ifdef DEBUG
-#warning FIXME debug
-	CGFloat menuBarHeight = [[[NSApplication sharedApplication] mainMenu] menuBarHeight];
-	NSLog(@"Height %f", menuBarHeight);
-#endif
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
